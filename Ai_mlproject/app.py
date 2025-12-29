@@ -20,43 +20,119 @@ st.set_page_config(
 # =========================
 st.markdown("""
 <style>
-body {
-    background-color: #fff0f6;
+
+/* =====================
+GLOBAL
+===================== */
+html, body {
+    background-color: #faf6f8;
+    color: #333;
+    font-family: 'Segoe UI', sans-serif;
 }
+
+/* =====================
+CARD
+===================== */
 .card {
-    background: white;
-    padding: 20px;
-    border-radius: 18px;
-    box-shadow: 0 8px 20px rgba(255,105,180,0.15);
+    background: #ffffff;
+    padding: 22px;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
     margin-bottom: 20px;
 }
-.metric-title {
-    font-size: 14px;
-    color: #888;
-}
-.metric-value {
-    font-size: 30px;
-    font-weight: bold;
-    color: #ff4d8d;
-}
+
+/* =====================
+TEXT
+===================== */
 .section-title {
     font-size: 22px;
-    font-weight: bold;
+    font-weight: 600;
+    color: #4a2c37;
 }
-.confidence-high {
-    color: #00c853;
-    font-weight: bold;
+
+.metric-title {
+    font-size: 13px;
+    color: #777;
 }
-.confidence-medium {
-    color: #ff9800;
-    font-weight: bold;
+
+.metric-value {
+    font-size: 30px;
+    font-weight: 700;
+    color: #b84d6f;
 }
-.confidence-low {
-    color: #f44336;
-    font-weight: bold;
+
+/* =====================
+SIDEBAR
+===================== */
+section[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #7a3f52, #5c2f3c);
 }
+
+section[data-testid="stSidebar"] * {
+    color: #f5f5f5;
+}
+
+/* =====================
+FILE UPLOADER FIX
+===================== */
+section[data-testid="stSidebar"] div[data-testid="stFileUploader"] {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 10px;
+}
+
+section[data-testid="stSidebar"] div[data-testid="stFileUploader"] * {
+    color: #333 !important;
+}
+
+/* upload button */
+section[data-testid="stSidebar"] button {
+    background-color: #b84d6f !important;
+    color: white !important;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+/* =====================
+SUCCESS / WARNING
+===================== */
+.stAlert-success {
+    background-color: #e8f5e9;
+    color: #256029;
+}
+
+.stAlert-warning {
+    background-color: #fff8e1;
+    color: #7a5d00;
+}
+
+/* =====================
+TABLE
+===================== */
+thead tr th {
+    background-color: #f4e6ec !important;
+    color: #4a2c37 !important;
+}
+
+tbody tr td {
+    font-size: 14px;
+}
+
+/* =====================
+SCROLLBAR
+===================== */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-thumb {
+    background: #c58aa0;
+    border-radius: 10px;
+}
+
 </style>
 """, unsafe_allow_html=True)
+
+
 
 # =========================
 # SIDEBAR
