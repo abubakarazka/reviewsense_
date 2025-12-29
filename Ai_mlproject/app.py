@@ -401,46 +401,5 @@ fig_conf.update_layout(
 st.plotly_chart(fig_conf, use_container_width=True)
 st.markdown("</div>", unsafe_allow_html=True)
 
-# =========================
-# DETAIL REVIEW WITH CONFIDENCE
-# =========================
-st.markdown("<div class='card'>", unsafe_allow_html=True)
-st.markdown("### 📝 Detail Review + Confidence Score")
-
-# Prepare display dataframe
-if has_product_name:
-    display_df = filtered_df[["product_name", "review_text", "sentiment_predicted", "confidence"]].copy()
-    display_df.columns = ["Produk", "Review Text", "Sentimen (AI)", "Confidence (%)"]
-else:
-    display_df = filtered_df[["review_text", "sentiment_predicted", "confidence"]].copy()
-    display_df.columns = ["Review Text", "Sentimen (AI)", "Confidence (%)"]
-
-# Add color coding for confidence
-def confidence_color(val):
-    if val >= 80:
-        return 'background-color: #c8e6c9'
-    elif val >= 60:
-        return 'background-color: #fff9c4'
-    else:
-        return 'background-color: #ffcdd2'
-
-# Display with styling
-st.dataframe(
-    display_df.style.applymap(confidence_color, subset=['Confidence (%)']),
-    use_container_width=True,
-    height=400
-)
-
-# Add legend
-col1, col2, col3 = st.columns(3)
-with col1:
-    st.markdown("🟢 **High Confidence**: ≥80%")
-with col2:
-    st.markdown("🟡 **Medium Confidence**: 60-79%")
-with col3:
-    st.markdown("🔴 **Low Confidence**: <60%")
-
-st.markdown("</div>", unsafe_allow_html=True)
-
 
 
