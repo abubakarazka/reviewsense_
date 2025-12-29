@@ -442,26 +442,5 @@ with col3:
 
 st.markdown("</div>", unsafe_allow_html=True)
 
-# =========================
-# SAMPLE PREDICTIONS
-# =========================
-st.markdown("<div class='card'>", unsafe_allow_html=True)
-st.markdown("### 🔬 Contoh Prediksi Model")
 
-sample_df = filtered_df.sample(min(5, len(filtered_df)))
 
-for idx, row in sample_df.iterrows():
-    sentiment_emoji = {
-        "positive": "😊",
-        "neutral": "😐", 
-        "negative": "😡"
-    }
-    
-    st.markdown(f"""
-    **Review:** {row['review_text'][:150]}...  
-    **Prediksi:** {sentiment_emoji.get(row['sentiment_predicted'], '❓')} {row['sentiment_predicted'].upper()}  
-    **Confidence:** {row['confidence']:.1f}%
-    """)
-    st.markdown("---")
-
-st.markdown("</div>", unsafe_allow_html=True)
